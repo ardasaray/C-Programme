@@ -1,1 +1,42 @@
+#include <stdio.h>
+
+int main() {
+    char operator;
+    double num1, num2, result;
+
+    printf("Einfacher C-Taschenrechner\n");
+    printf("Gib eine Rechnung ein (z.B. 2 + 3): ");
+
+    // Eingabe: Zahl Operator Zahl
+    scanf("%lf %c %lf", &num1, &operator, &num2);
+
+    // Berechnung basierend auf Operator
+    switch(operator) {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            if(num2 != 0)
+                result = num1 / num2;
+            else {
+                printf("Fehler: Division durch Null!\n");
+                return 1;
+            }
+            break;
+        default:
+            printf("Fehler: Ungültiger Operator!\n");
+            return 1;
+    }
+
+    // Ergebnis ausgeben
+    printf("Ergebnis: %.2lf %c %.2lf = %.2lf\n", num1, operator, num2, result);
+
+    return 0;
+}
 
